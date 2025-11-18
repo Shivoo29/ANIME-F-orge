@@ -1,0 +1,13 @@
+"""Prompts module for LLM guidance."""
+
+from .system import (
+    MANIM_CODE_GENERATION_PROMPT,
+    MANIM_CODE_REFINEMENT_PROMPT,
+    CODE_EXTRACTION_PROMPT,
+)
+
+__all__ = [
+    "MANIM_CODE_GENERATION_PROMPT",
+    "MANIM_CODE_REFINEMENT_PROMPT",
+    "CODE_EXTRACTION_PROMPT",
+]
