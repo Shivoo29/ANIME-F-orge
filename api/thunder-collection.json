@@ -1,0 +1,382 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "AnimaForge API",
+  "dateExported": "2024-01-15",
+  "version": "1.1",
+  "folders": [
+    {
+      "id": "auth",
+      "name": "Authentication",
+      "containerId": "",
+      "created": "2024-01-15T00:00:00.000Z",
+      "sortNum": 10000
+    },
+    {
+      "id": "animations",
+      "name": "Animations",
+      "containerId": "",
+      "created": "2024-01-15T00:00:00.000Z",
+      "sortNum": 20000
+    },
+    {
+      "id": "users",
+      "name": "Users",
+      "containerId": "",
+      "created": "2024-01-15T00:00:00.000Z",
+      "sortNum": 30000
+    },
+    {
+      "id": "search",
+      "name": "Search",
+      "containerId": "",
+      "created": "2024-01-15T00:00:00.000Z",
+      "sortNum": 40000
+    }
+  ],
+  "requests": [
+    {
+      "id": "health-check",
+      "name": "Health Check",
+      "url": "http://localhost:8080/api/v1/health",
+      "method": "GET",
+      "sortNum": 5000,
+      "created": "2024-01-15T00:00:00.000Z",
+      "modified": "2024-01-15T00:00:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "id": "register",
+      "name": "Register User",
+      "url": "http://localhost:8080/api/v1/auth/register",
+      "method": "POST",
+      "sortNum": 10000,
+      "created": "2024-01-15T00:00:00.000Z",
+      "modified": "2024-01-15T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"username\": \"testuser\",\n  \"email\": \"test@example.com\",\n  \"password\": \"password123\"\n}",
+        "form": []
+      },
+      "tests": [],
+      "containerId": "auth"
+    },
+    {
+      "id": "login",
+      "name": "Login",
+      "url": "http://localhost:8080/api/v1/auth/login",
+      "method": "POST",
+      "sortNum": 10100,
+      "created": "2024-01-15T00:00:00.000Z",
+      "modified": "2024-01-15T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"password123\"\n}",
+        "form": []
+      },
+      "tests": [],
+      "containerId": "auth"
+    },
+    {
+      "id": "get-me",
+      "name": "Get Current User",
+      "url": "http://localhost:8080/api/v1/auth/me",
+      "method": "GET",
+      "sortNum": 10200,
+      "created": "2024-01-15T00:00:00.000Z",
+      "modified": "2024-01-15T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{token}}"
+        }
+      ],
+      "params": [],
+      "tests": [],
+      "containerId": "auth"
+    },
+    {
+      "id": "logout",
+      "name": "Logout",
+      "url": "http://localhost:8080/api/v1/auth/logout",
+      "method": "POST",
+      "sortNum": 10300,
+      "created": "2024-01-15T00:00:00.000Z",
+      "modified": "2024-01-15T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{token}}"
+        }
+      ],
+      "params": [],
+      "tests": [],
+      "containerId": "auth"
+    },
+    {
+      "id": "list-animations",
+      "name": "List Animations",
+      "url": "http://localhost:8080/api/v1/animations?page=1&limit=10",
+      "method": "GET",
+      "sortNum": 20000,
+      "created": "2024-01-15T00:00:00.000Z",
+      "modified": "2024-01-15T00:00:00.000Z",
+      "headers": [],
+      "params": [
+        {
+          "name": "page",
+          "value": "1",
+          "isPath": false
+        },
+        {
+          "name": "limit",
+          "value": "10",
+          "isPath": false
+        }
+      ],
+      "tests": [],
+      "containerId": "animations"
+    },
+    {
+      "id": "create-animation",
+      "name": "Create Animation",
+      "url": "http://localhost:8080/api/v1/animations",
+      "method": "POST",
+      "sortNum": 20100,
+      "created": "2024-01-15T00:00:00.000Z",
+      "modified": "2024-01-15T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{token}}"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"My Animation\",\n  \"description\": \"A cool animation\",\n  \"file_url\": \"https://example.com/animation.mp4\",\n  \"thumbnail_url\": \"https://example.com/thumbnail.jpg\"\n}",
+        "form": []
+      },
+      "tests": [],
+      "containerId": "animations"
+    },
+    {
+      "id": "get-animation",
+      "name": "Get Animation",
+      "url": "http://localhost:8080/api/v1/animations/{{animation_id}}",
+      "method": "GET",
+      "sortNum": 20200,
+      "created": "2024-01-15T00:00:00.000Z",
+      "modified": "2024-01-15T00:00:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": [],
+      "containerId": "animations"
+    },
+    {
+      "id": "update-animation",
+      "name": "Update Animation",
+      "url": "http://localhost:8080/api/v1/animations/{{animation_id}}",
+      "method": "PUT",
+      "sortNum": 20300,
+      "created": "2024-01-15T00:00:00.000Z",
+      "modified": "2024-01-15T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{token}}"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"Updated Title\",\n  \"description\": \"Updated description\"\n}",
+        "form": []
+      },
+      "tests": [],
+      "containerId": "animations"
+    },
+    {
+      "id": "delete-animation",
+      "name": "Delete Animation",
+      "url": "http://localhost:8080/api/v1/animations/{{animation_id}}",
+      "method": "DELETE",
+      "sortNum": 20400,
+      "created": "2024-01-15T00:00:00.000Z",
+      "modified": "2024-01-15T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{token}}"
+        }
+      ],
+      "params": [],
+      "tests": [],
+      "containerId": "animations"
+    },
+    {
+      "id": "featured-animations",
+      "name": "Get Featured Animations",
+      "url": "http://localhost:8080/api/v1/animations/featured?page=1&limit=10",
+      "method": "GET",
+      "sortNum": 20500,
+      "created": "2024-01-15T00:00:00.000Z",
+      "modified": "2024-01-15T00:00:00.000Z",
+      "headers": [],
+      "params": [
+        {
+          "name": "page",
+          "value": "1",
+          "isPath": false
+        },
+        {
+          "name": "limit",
+          "value": "10",
+          "isPath": false
+        }
+      ],
+      "tests": [],
+      "containerId": "animations"
+    },
+    {
+      "id": "trending-animations",
+      "name": "Get Trending Animations",
+      "url": "http://localhost:8080/api/v1/animations/trending?page=1&limit=10",
+      "method": "GET",
+      "sortNum": 20600,
+      "created": "2024-01-15T00:00:00.000Z",
+      "modified": "2024-01-15T00:00:00.000Z",
+      "headers": [],
+      "params": [
+        {
+          "name": "page",
+          "value": "1",
+          "isPath": false
+        },
+        {
+          "name": "limit",
+          "value": "10",
+          "isPath": false
+        }
+      ],
+      "tests": [],
+      "containerId": "animations"
+    },
+    {
+      "id": "get-user-profile",
+      "name": "Get User Profile",
+      "url": "http://localhost:8080/api/v1/users/{{user_id}}/profile",
+      "method": "GET",
+      "sortNum": 30000,
+      "created": "2024-01-15T00:00:00.000Z",
+      "modified": "2024-01-15T00:00:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": [],
+      "containerId": "users"
+    },
+    {
+      "id": "get-user-animations",
+      "name": "Get User Animations",
+      "url": "http://localhost:8080/api/v1/users/{{user_id}}/animations?page=1&limit=10",
+      "method": "GET",
+      "sortNum": 30100,
+      "created": "2024-01-15T00:00:00.000Z",
+      "modified": "2024-01-15T00:00:00.000Z",
+      "headers": [],
+      "params": [
+        {
+          "name": "page",
+          "value": "1",
+          "isPath": false
+        },
+        {
+          "name": "limit",
+          "value": "10",
+          "isPath": false
+        }
+      ],
+      "tests": [],
+      "containerId": "users"
+    },
+    {
+      "id": "update-user-profile",
+      "name": "Update User Profile",
+      "url": "http://localhost:8080/api/v1/users/{{user_id}}/profile",
+      "method": "PUT",
+      "sortNum": 30200,
+      "created": "2024-01-15T00:00:00.000Z",
+      "modified": "2024-01-15T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{token}}"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"username\": \"newusername\",\n  \"email\": \"newemail@example.com\"\n}",
+        "form": []
+      },
+      "tests": [],
+      "containerId": "users"
+    },
+    {
+      "id": "search-animations",
+      "name": "Search Animations",
+      "url": "http://localhost:8080/api/v1/search?q=cool&page=1&limit=10",
+      "method": "GET",
+      "sortNum": 40000,
+      "created": "2024-01-15T00:00:00.000Z",
+      "modified": "2024-01-15T00:00:00.000Z",
+      "headers": [],
+      "params": [
+        {
+          "name": "q",
+          "value": "cool",
+          "isPath": false
+        },
+        {
+          "name": "page",
+          "value": "1",
+          "isPath": false
+        },
+        {
+          "name": "limit",
+          "value": "10",
+          "isPath": false
+        }
+      ],
+      "tests": [],
+      "containerId": "search"
+    }
+  ]
+}
